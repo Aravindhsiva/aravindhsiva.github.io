@@ -1,0 +1,64 @@
+*{
+    font-family: 'Mitr', sans-serif;
+}
+.body{
+    width:20%;
+    margin-top:9%;
+    background-color: #fff;
+    border-radius: 5px;
+    padding:10px;
+    box-shadow: 3px 3px 65px 3px rgba(0,0,0,1);
+}
+.confirm{
+    width:20%;
+    margin-top:9%;
+    background-color: #fff;
+    border-radius: 5px;
+    padding:10px;
+    box-shadow: 2px 3px 65px 3px black;
+}
+body{
+    background: #09aaff;
+}
+.foot{
+    margin-top: 2%;
+    letter-spacing: 4px;
+}
+.body h1{
+    padding:10px;
+}
+.form-control{
+    text-align: center;
+}
+label{
+    font-size: 20px;
+    margin-left: 10%;
+    font-weight: 500;
+}
+.btn{
+    margin-left: 10%;
+}
+@media (max-width:1700px){
+    .body{
+        width:20% !important;
+    }
+}
+@media (max-width:1400px){
+    .body{
+        width: 30% !important;
+    }
+}
+@media (max-width: 1200px){
+  
+    .body{
+        width: 30% !important;
+    }
+    .confirm{
+        width:40%;
+    }
+}
+@media (max-width:1024px){
+    .body{
+        width: 40% !important;
+    }
+}
