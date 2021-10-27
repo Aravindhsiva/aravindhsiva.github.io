@@ -7,7 +7,8 @@
   <title>Aravindh Siva</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css?family=Rubik:300,500,700" rel="stylesheet">
-  <meta name="description" content="A Seasoned Software Developer with 2 years experience on developing products in the end to end business product development workflow.">
+  <meta name="description"
+    content="A Seasoned Software Developer with 2 years experience on developing products in the end to end business product development workflow.">
   <meta name="author" content="Aravindh.S">
   <meta property="og:description" content="Profile Page of Aravindh">
   <meta property="og:image"
@@ -34,7 +35,7 @@
       font-size: calc(10px + 0.33vw);
       -webkit-font-smoothing: antialiased;
       padding: 16vh 6vw;
-      color: #121314;
+      color: #fff;
     }
 
     h1 {
@@ -52,7 +53,7 @@
 
     a {
       text-decoration: none;
-      color: #121314;
+      color: #fff;
       position: relative;
     }
 
@@ -65,7 +66,7 @@
       right: -0.1em;
       bottom: 0;
       transition: top 1s cubic-bezier(0, .8, .13, 1);
-      background-color: rgba(255, 13, 5, 0.596);
+      background-color: #00000098;
     }
 
     a:hover {
@@ -89,56 +90,108 @@
       left: -10% !important;
       width: 60% !important;
       top: -10% !important;
+      z-index: 99999 !important;
+    }
+
+    .card {
+      backdrop-filter: blur(15px) saturate(177%);
+      -webkit-backdrop-filter: blur(15px) saturate(177%);
+      background-color: #1119286b;
+      border-radius: 12px;
+      border: 1px solid #ffffff20;
+      z-index: 99999 !important;
+    }
+
+    #body {
+      background-position: center !important;
+      background-repeat: no-repeat !important;
+      background-size: cover !important;
+    }
+
+    .power-card {
+      width: 10%;
+      text-align: right;
+      font-size: 14px;
+      padding: 12px 8px;
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      color: #fff;
+      border-radius: 10px !important;
+    }
+
+    .power-card img {
+      width: 18%;
+      position: absolute;
+      right: 75%;
+      top: 5px;
     }
   </style>
 </head>
 
-<body>
+<body onload="getPictures()" id="body">
+  <div class="card power-card">
+    <img src="images/light.png" />
+    <span>Powered with Random Wallpaper</span>
+  </div>
   <div id="confettiBomb"></div>
   <div class="row">
     <div class="col-sm-7">
-      <h1>Hello.</h1>
-      <p style="font-weight:500; font-size:2.2em">
-        I'm Aravindh Sivalingam.
-      </p>
-      <p>
-        I am an enthusiastic Full Stack Developer at <a href="https://www.cratoflow.com/" target="_blank">CratoFlow</a>.
-        Most of my work is publicly available on
-        <a href="https://github.com/Aravindhsiva/" target="_blank">GitHub</a>.
-      </p>
-      <p>
-        You probably want to follow me on
-        <a href="https://twitter.com/iamaravindhsiva" target="_blank">Twitter</a> and
-        <a href="https://www.linkedin.com/in/aravindhsiva/" target="_blank">Linkedin</a>
-        for more up-to-date content.
-      </p>
-      <p>
-        If you happen to speak Tamil, my Tamil name is <br> அரவிந்த் சிவலிங்கம். you can also find me on
-        <a href="https://www.facebook.com/iamaravindhsiva" target="_blank">Facebook</a> and
-        <a href="https://www.instagram.com/aravindh_siva" target="_blank">Insta</a>.
-      </p>
-      <p>
-        Outside of programming and helping my team on working Frontend tickets,
-        I enjoy PUBG, Briyani and learning more.
-      </p>
+      <div class="card p-5">
+        <h1>Hello.</h1>
+        <p style="font-weight:500; font-size:2.2em">
+          I'm Aravindh Sivalingam.
+        </p>
+        <p>
+          I am an enthusiastic Full Stack Developer at <a href="https://www.cratoflow.com/"
+            target="_blank">CratoFlow</a>.
+          Most of my work is publicly available on
+          <a href="https://github.com/Aravindhsiva/" target="_blank">GitHub</a>.
+        </p>
+        <p>
+          You probably want to follow me on
+          <a href="https://twitter.com/iamaravindhsiva" target="_blank">Twitter</a> and
+          <a href="https://www.linkedin.com/in/aravindhsiva/" target="_blank">Linkedin</a>
+          for more up-to-date content.
+        </p>
+        <p>
+          If you happen to speak Tamil, my Tamil name is <br> அரவிந்த் சிவலிங்கம். you can also find me on
+          <a href="https://www.facebook.com/iamaravindhsiva" target="_blank">Facebook</a> and
+          <a href="https://www.instagram.com/aravindh_siva" target="_blank">Insta</a>.
+        </p>
+        <p>
+          Outside of programming and helping my team on working Frontend tickets,
+          I enjoy PUBG, Briyani and learning more.
+        </p>
+      </div>
     </div>
-    <div class="col-sm-5">
+    <!-- <div class="col-sm-5">
       <div id="workingMan"></div>
-    </div>
+    </div> -->
   </div>
 </body>
+<script>
+  const getPictures = () => {
+    fetch("https://api.unsplash.com/photos/random?query=technology&orientation=landscape&client_id=7a23aff250eba3f9f87a18341ee8f1d1b78159583e817b4ffffa29f189c4c4be")
+      .then(response => response.json())
+      .then(response => {
+        console.log(response);
+        document.getElementById("body").style.backgroundImage = `url(${response['urls']['regular']})`;
+      });
+  }
+</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.6/lottie.min.js"></script>
 <script>
-  const workingManContainer = document.getElementById('workingMan');
+  // const workingManContainer = document.getElementById('workingMan');
   const confettiBombContainer = document.getElementById('confettiBomb');
-  const workingManAnim = bodymovin.loadAnimation({
-    container: workingManContainer,
-    path: '/js/man-is-working.json',
-    renderer: 'svg',
-    loop: false,
-    autoplay: false,
-    name: "Working Man Animation"
-  });
+  // const workingManAnim = bodymovin.loadAnimation({
+  //   container: workingManContainer,
+  //   path: '/js/man-is-working.json',
+  //   renderer: 'svg',
+  //   loop: false,
+  //   autoplay: false,
+  //   name: "Working Man Animation"
+  // });
   const confettiBombAnim = bodymovin.loadAnimation({
     container: confettiBombContainer,
     path: '/js/confetti-cannon.json',
@@ -148,7 +201,7 @@
     name: "Confetti Cannon Animation"
   });
   confettiBombAnim.play();
-  workingManAnim.play();
+  // workingManAnim.play();
 </script>
 
 </html>
