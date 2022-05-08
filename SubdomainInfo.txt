@@ -1,0 +1,5 @@
+For new Subdomains, Adding New CNAME Record
+Type => CNAME
+Name => subdomain name ("codes")
+value => github url ("codestages.github.io")
+TTL => Custom -> 600
